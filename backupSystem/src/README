@@ -1,0 +1,141 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+					rDiffBackUp Helper version 0.0.3
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+Requeriments:
+_______________________________________________________________________________
+
+	- rdiffbackup
+	- Python 3.1
+	- rdiff-web is a usefull rdiffbackup web client for restore backups.
+		  I recommend.(www.rdiffweb.org)
+
+
+
+
+Dependencies:
+_______________________________________________________________________________
+
+	1) Install rdiff-backup in debian:
+		...
+		sudo aptitude isntall rdiffbackup
+		...
+
+	2) Install Python 3.1:
+		Download this from http://www.python.org/download
+
+
+
+Installation:
+_______________________________________________________________________________
+
+	tar zxf rdiffbackuphelper.tar.gz
+
+	cd rdiffbackuphelper/
+
+	cd ..
+
+	sudo mv rdiffbackuphelper/ /usr/local/
+
+	cd /usr/local/rdiffbackuphelper
+
+	sudo chmod u+x backup.sh
+
+
+	just missing  add rdiffbackuphelper to crond for
+	run backup system:
+
+	sudo crontab -e
+	...
+	# m h  dom mon dow   command
+	0 17,22 * * * /usr/local/rdiffbackuphelper/./backup.sh
+	...
+
+	in this example the backup system run twice all days.
+
+
+Configuration
+________________________________________________________________________________
+
+1) Prority:
+	Set priority of backup execution. Internally use unix nice command to
+	set process priority of rdiff-backup command.
+	
+	Example:
+		PROCESS_PRIORITY = 19
+		
+2) Log Level:
+	The default log level is INFO, but exist other level useful to 
+	development. 
+	
+	All log levels:
+		- ErrorLogLevel()
+		- WarnLogLevel()
+		- InfoLogLevel()(Default)
+		- DebugLogLevel()
+ 
+	Example:
+		LOG_LEVEL = DebugLogLevel()
+
+3) Repository:
+	Path of main backup repository. Two types: local or remote.
+	Remote mode use ssh protocol.
+		
+	Examples:
+		- Local repository:
+			REPOSITORY_PATH = '/media/sda4/backup/local'
+
+		- Remote repository:
+			REPOSITORY_PATH = "192.168.2.20::/media/sda4/backup/skynet"
+
+4) Fils to backup: This have same line of rdiff-backup configuration.
+	Example 1:
+		BACKUP_PATHS = [
+       		BackupPath('/home/adrian/development'),
+       		BackupPath('/home/adrian/documents'),
+       		BackupPath('/home/adrian/wallpapers'),
+        	BackupPath('/home/adrian'),
+        	BackupPath('/etc'),
+        	BackupPath('/boot/grub'),
+        	BackupPath('/usr/local/sbin'),
+        	BackupPath('/usr/local/bin')
+    	]
+	Exist option of Exclude/Inclide with in rdiff-backup.
+	Example 2:
+		BACKUP_PATHS = [
+       		BackupPath('/home/adrian/development',ExcludeAction),
+       		BackupPath('/home/adrian/development/src/',IncludeAction),
+       		BackupPath('/home/adrian/development/src/c++/',ExcludeAction),
+        	BackupPath('/usr/local/bin')
+    	]
+
+
+5) Mail report: Mail report of backup execution.
+	Example:
+		ENABLE_MAIL_REPORT = True
+
+
+6) SMTP Server:
+	Used to send backup report.
+		
+	Example:
+		MAIL_SERVER = 'smtp.gmail.com'
+		MAIL_ADDRESS = MAIL_LOGIN_USER = 'adrianmarino@gmail.com'
+		MAIL_LOGIN_PASSWORD = '29042902'
+
+
+7) Local report:
+	Exist option to generate a local report file.
+
+	Example:
+		ENABLE_LOCAL_REPORT = False
+		REPORT_PATH = '/home/elnono/backup.report'
+
+
+by NONOSoft ;).
+
+		

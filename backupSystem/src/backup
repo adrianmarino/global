@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# App path...
+BACKUP_HOME="/usr/local/backup"
+
+# Change to app directory...
+cd $BACKUP_HOME
+
+# Execute app...
+time python3.1 $BACKUP_HOME/backup.py backup
