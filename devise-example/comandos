@@ -1,0 +1,4 @@
+gem install bundle
+bundle install
+rake devise:setup
+rails generate devise:views

@@ -1,0 +1,42 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+es:
+  home: 'Inicio'
+  sign_up: 'Regístrate'
+  email: 'Correo Electrónico'
+  remember_me: 'Recordar'
+  password: 'Contraseña'
+  password_confirmation: 'Confirmación de la contraseña'
+  sign_in_with: 'Conéctate con'
+  sign_in: 'Ingresar'
+  forgot_your_password: '¿Olvidaste tu contraseña?'
+  didnt_receive_confirmation_instructions: '¿No recibio instrucciones de confirmación?'
+  didnt_receive_unlock_instructions: '¿No recibio instrucciones de desbloqueo?'
+  sign_up_as_admin: 'Regístrate como administrador'
+  sign_in_as_admin: 'iniciar sesión como administrador'
+  sign_up_as_user: 'Regístrate como usuario'
+  sign_in_as_user: 'iniciar sesión como usuario'
+  token_authentication_example: 'Ejemplo de autenticación Token'
+  send_me_reset_password_instructions: 'Envíar instrucciones para restablecer mi contraseña'
+  activerecord:
+    errors:
+        models:
+          admin:
+              attributes:
+                  password:
+                      confirmation: 'Debe confirmar la contraseña.'
+                      blank: 'Debe ingresar una contraseña.'
+          user:
+              attributes:
+                  password:
+                      confirmation: 'Debe confirmar la contraseña.'
+                      blank: 'Debe ingresar una contraseña.'
+                  email:
+                      taken: 'Ya existe un usuario con este mail.'
+                      blank: 'Debe ingresar una correo electrónico.'
+  devise:
+      registrations:
+          user:
+            inactive_signed_up: "Te has registrado correctamente. Sin embargo, no puedes iniciar sesion debido a que tu cuenta esta %{reason}." 
+
+          

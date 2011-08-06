@@ -1,0 +1,35 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  home: 'Home'
+  sign_up: 'Sign Up'
+  email: 'Email'
+  remember_me: 'Remember me'
+  password: 'Password'
+  password_confirmation: 'Password confirmation'
+  sign_in_with: 'Sign in with'
+  sign_in: 'Sign In'
+  forgot_your_password: 'Forgot your password?'
+  didnt_receive_confirmation_instructions: "didn't receive confirmation instructions?"
+  didnt_receive_unlock_instructions: "Didn't receive unlock instructions?"
+  sign_up_as_admin: 'Sign up as admin'
+  sign_in_as_admin: 'Sign in as admin'
+  sign_up_as_user: 'Sign up as user'
+  sign_in_as_user: 'Sign in as user'
+  token_authentication_example: 'Token Authentication Example'
+  send_me_reset_password_instructions: 'Send me reset password instructions'
+  activerecord:
+      errors:
+          models:
+              admin:
+                  attributes:
+                      password:
+                          confirmation: 'You must confirm the password.'
+                          blank: 'You must enter a password.'
+              user:
+                  attributes:
+                      password:
+                          confirmation: 'You must confirm the password.'
+                          blank: 'You must enter a password.'
+ 
